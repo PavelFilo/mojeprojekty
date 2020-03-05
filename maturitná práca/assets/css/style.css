@@ -1,0 +1,142 @@
+html,body
+{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+    text-align: center;
+    font-family: 'roboto';
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+li {
+	list-style-type: none;
+	display: inline;
+}
+
+/* SOLID HEADER */
+
+header {
+	width: 100%;
+	height: 90px;
+	background: #fff;
+	border-bottom: 3px solid #f0f0f0; 
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 3;
+	font-family: 'Raleway', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1.2px;
+
+
+	-ms-transition:     all 0.3s ease-out;
+    -moz-transition:    all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition:      all 0.3s ease-out;
+    transition:         all 0.3s ease-out;
+}
+
+header div {
+	display: inline-block;
+	margin: 22px 0 0 113px;
+}
+
+header div h2{
+	display: inline;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+	margin-left: 10px;
+	letter-spacing: .2em;
+
+}
+
+header div img {
+	vertical-align: middle;
+}
+
+header nav {
+	float: right;
+	padding-right: 47px;
+	margin-top: 36px;
+	color: #222;
+	font-size: 14px;
+}
+
+header nav li {
+		margin-left: 15px;
+}
+
+header nav li:first-child {
+	text-decoration: underline;
+}
+
+header nav li:first-child:hover,
+header nav li:first-child:focus {
+	text-decoration: none;
+}
+
+.headerUp {
+	top: -90px;
+}
+
+#menuButton {
+	float: left;
+	margin-top: 36px;
+	font-size: 12px;
+	vertical-align: top;
+	font-weight: 700;
+	padding-left: 47px;
+	color: #777;
+}
+
+#menuButton i {
+	font-size: 22px;
+	color: #BA7A23;
+}
+
+#menuButton span {
+	position: relative;
+    top: -4px;
+}
+
+/* TOGGLE HEADER */
+
+.toggleNav {
+	display: inline-block;
+	width: 100%;
+	position: fixed;
+	left: 0;
+	
+	top: 90px;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 300;
+	font-size: 13px;
+	letter-spacing: .2em;
+	text-transform: uppercase;
+	opacity: .8;
+	z-index: 2;
+	background: #fff;
+
+
+}
+
+.toggleNav ul {
+	margin: 24px 0 24px 0;
+}
+
+.toggleNav ul li {
+	margin-left: 50px;
+}
+
+.toggleNav ul li:first-child {
+	margin-left: -34px;
+}
+
+.toggleNav ul li a:hover {
+	color: #BA7A23;
+}
