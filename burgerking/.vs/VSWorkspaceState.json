@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\Navigation",
+    "\\src\\components\\Navigation\\NavigationItems",
+    "\\src\\components\\UI",
+    "\\src\\components\\UI\\Input",
+    "\\src\\containers",
+    "\\src\\containers\\checkout",
+    "\\src\\containers\\checkout\\ContactData"
+  ],
+  "SelectedNode": "\\src\\store\\actions\\auth.js",
+  "PreviewInSolutionExplorer": false
+}
