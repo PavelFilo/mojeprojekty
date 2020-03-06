@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+import * as actions from './store/actions/index';
 import Layout from './hoc/Layout/Layout.js';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder.js';
 import Checkout from './containers/checkout/Checkout.js';
@@ -9,6 +11,9 @@ import Auth from './containers/Auth/Auth';
 import Logout from './containers/Auth/Logout';
 
 class App extends Component {
+	componentDidMount() {
+		this.props.onReloadAuth();
+	}
   render() {
     return (
       <div >
@@ -28,4 +33,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+	return {
+		onReloadAuth: () => dispatch(actions.authCheckState())
+	}
+}
+
+export default connect(null,mapDispatchToProps)(App);

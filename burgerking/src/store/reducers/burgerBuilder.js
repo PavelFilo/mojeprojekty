@@ -4,7 +4,8 @@ import { updateObject } from '../utility';
 const initialState = {
 	ingredients: null,
 	error: false,
-	totalPrice: 2
+	totalPrice: 2,
+	building: false
 }
 
 const INGREDIENTS_PRICES = {
@@ -20,7 +21,8 @@ const addIngred = (state, action) => {
 	const updatedState = {
 		...state,
 		ingredients: updatedIngredients,
-		totalPrice: state.totalPrice + INGREDIENTS_PRICES[action.ingredName]
+		totalPrice: state.totalPrice + INGREDIENTS_PRICES[action.ingredName],
+		building: true
 	}
 	return updateObject(state, updatedState);
 };
@@ -31,7 +33,8 @@ const removeIngred = (state, action) => {
 	const updatedSt = {
 		...state,
 		ingredients: updatedIngr,
-		totalPrice: state.totalPrice + INGREDIENTS_PRICES[action.ingredName]
+		totalPrice: state.totalPrice + INGREDIENTS_PRICES[action.ingredName],
+		building: true
 	}
 	return updateObject(state, updatedSt);
 }
@@ -45,6 +48,7 @@ const settIngred = (state, action) => {
 			meat: action.ingredients.meat
 		},
 		error: false,
+		building: false
 	});
 }
 
@@ -60,6 +64,12 @@ const priceUpdate = (state) => {
 	});
 }
 
+const buildingReset = (state) => {
+	return updateObject(state, {
+		building: false
+	})
+}
+
 const reducer = (state = initialState, action) => {
 	
 		switch (action.type) {
@@ -67,7 +77,8 @@ const reducer = (state = initialState, action) => {
 			case actionTypes.REMOVE_INGRED: return removeIngred(state, action);
 			case actionTypes.SET_INGRED: return settIngred(state, action);
 			case actionTypes.INGRED_FAILED: return failIngred(state);
-			case actionTypes.BURGER_PRICE_UPDATE: return priceUpdate(state);		
+			case actionTypes.BURGER_PRICE_UPDATE: return priceUpdate(state);
+			case actionTypes.BUILDING_RESET: return buildingReset(state);
 			default: return state;
 		}
 }

@@ -5,6 +5,7 @@ import Aux from '../Auxilliary/Auxilliary.js';
 import classes from './Layout.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar.js';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer.js';
+import * as actions from '../../store/actions/index';
 
 class Layout extends Component {
 		
@@ -23,8 +24,15 @@ class Layout extends Component {
 
 		return(
 			<Aux>	
-				<Toolbar isLogged={this.props.isAuth} clicked={this.sideDrawerToggle} />
-				<SideDrawer isLogged={this.props.isAuth} show={this.state.showSideDrawer} clicked={this.sideDrawerToggle} />
+				<Toolbar
+					buildingReset={this.props.onAuthClick}
+					isLogged={this.props.isAuth}
+					clicked={this.sideDrawerToggle} />
+				<SideDrawer
+					buildingReset={this.props.onAuthClick}
+					isLogged={this.props.isAuth}
+					show={this.state.showSideDrawer}
+					clicked={this.sideDrawerToggle} />
 				<main className={classes.Content}>
 					{this.props.children}
 				</main>
@@ -39,4 +47,10 @@ const mapStateToProps = state => {
 	}
 }
 
-export default connect(mapStateToProps)(Layout);
+const mapDispatchToProps = dispatch => {
+	return {
+		onAuthClick: () => dispatch(actions.buildingReset()),
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);

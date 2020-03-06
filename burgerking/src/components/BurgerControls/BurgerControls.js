@@ -21,7 +21,10 @@ const BurgerControls = props => {
 		<div className={classes.BurgerControls}>
 			<p>Total Price <strong>{props.price.toFixed(2)}</strong> €</p>
 			{controls}
-			<button onClick={() => props.modalShowed()} className={classes.OrderButton} disabled={!props.purchasable}>ORDER NOW</button>
+			<button
+				onClick={() => props.modalShowed()}
+				className={classes.OrderButton}
+				disabled={!props.purchasable}>{props.isAuth ? "ORDER NOW" : "SIGN UP PLEASE" }</button>
 		</div>
 		);
 } 

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import classes from './Auth.css';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import * as actions from '../../store/actions/index';
-import { connect } from 'react-redux';
+
 
 class Auth extends Component {
 	state = {
@@ -97,7 +100,7 @@ class Auth extends Component {
 		}
 
 		let form = formElementsArray.map(formElement => (
-			<Input 
+			<Input
 				key={formElement.id}
 				elementType={formElement.config.elementType}
 				elementConfig={formElement.config.elementConfig}
@@ -108,27 +111,35 @@ class Auth extends Component {
 				changed={(event) => this.inputChangedHandler(event, formElement.id)}
 			/>
 		));
-		if (this.props.loading) { form = <Spinner />}
+		if (this.props.loading) { form = <Spinner /> }
 
 		let errorMessage = null;
-
 		if (this.props.error) {
 			errorMessage = (
-				<p>There is an error going on</p>	
+				<p>There is an error going on</p>
 			)
+		}
+
+		let authRedirect = null;
+		if (this.props.isLoggedin) {
+			authRedirect = <Redirect to="/" />
+			if (this.props.building) {
+				authRedirect = <Redirect to="/checkout" />
+			}
 		}
 
 		return (
 
 			<div className={classes.Auth}>
 				<form onSubmit={(event) => this.onSubmitHandler(event)}>
+					{authRedirect}
 					{form}
 					{errorMessage}
-					<Button btnType="Success">Log In</Button>
+					<Button btnType="Success">SUBMIT</Button>
 				</form>
 				<Button
 					btnType="Danger"
-					clicked={this.switchSignButton}>Switch to {this.state.isSignup ? "Sign In" : "Sign Up"} </Button>
+					clicked={this.switchSignButton}>Switch to {this.state.isSignup ? "Sign IN" : "Sign UP"} </Button>
             </div>
             
             );
@@ -138,7 +149,9 @@ class Auth extends Component {
 const mapStateToProps = state => {
 	return {
 		loading: state.auth.loading,
-		error: state.auth.error
+		error: state.auth.error,
+		isLoggedin: state.auth.token != null,
+		building: state.burgerBuilder.building,
 	}
 }
 

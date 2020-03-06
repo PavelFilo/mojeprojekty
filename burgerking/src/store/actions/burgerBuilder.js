@@ -39,3 +39,9 @@ export const initIngred = () => {
 
     }
 }
+
+export const buildingReset = () => {
+    return {
+        type: actionTypes.BUILDING_RESET,
+    }
+}
