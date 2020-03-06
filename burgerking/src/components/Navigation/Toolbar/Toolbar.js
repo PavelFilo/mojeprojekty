@@ -11,7 +11,7 @@ const Toolbar = (props) => (
 		<MenuButton  clicked={props.clicked}/>
 		<Logo height='80%'/>
 		<nav className={classes.DesktopOnly}>
-			<Navigation />
+			<Navigation isLogged={props.isLogged} />
 		</nav>
 	</header>
 );

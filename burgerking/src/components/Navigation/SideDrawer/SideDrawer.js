@@ -19,7 +19,7 @@ const SideDrawer = (props) => {
 					<Logo height='100%' />
 				</div>
 				<nav>
-					<NavigationItems />
+					<NavigationItems isLogged={props.isLogged}/>
 
 				</nav>
 			</div>
