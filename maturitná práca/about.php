@@ -29,7 +29,7 @@
                     
             <div class="rightsite">
             	<h5>How did it start?</h5>
-            	<p>Two years ago, it all started with a day when, while doing some boring stuff, I came across a website named ITnetwork and the moment, I started reading, the window to the whole new world of writing opened for me.</p>
+            	<p>Three years ago, it all started with a day when, while doing some boring stuff, I came across a website named ITnetwork and the moment, I started reading, the window to the whole new world of writing opened for me.</p>
             	<p>I started to getting some info from my friend who, worked that time as web developer. So he told me how world with webs works and I found it interesting.</p>
             	<p>Then I found guy named yablko who has some tutorials which I watched with passion. And now I love what I make.</p>
             	<p> “A successful website does three things:
