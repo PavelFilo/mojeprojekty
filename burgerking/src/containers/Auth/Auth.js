@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
@@ -83,7 +83,6 @@ class Auth extends Component {
 	onSubmitHandler = event => {
 		event.preventDefault();
 		this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value, this.state.isSignup);
-
 	}
 
 	switchSignButton = () => {
@@ -120,19 +119,20 @@ class Auth extends Component {
 			)
 		}
 
-		let authRedirect = null;
-		if (this.props.isLoggedin) {
+	/*	let authRedirect = null;
+		if (this.props.isLoggedIn) {
+			console.log(this.props.isLoggedIn);
 			authRedirect = <Redirect to="/" />
 			if (this.props.building) {
+				console.log(this.props.isLoggedIn+" jebem");
 				authRedirect = <Redirect to="/checkout" />
 			}
-		}
+		}*/
 
 		return (
 
 			<div className={classes.Auth}>
 				<form onSubmit={(event) => this.onSubmitHandler(event)}>
-					{authRedirect}
 					{form}
 					{errorMessage}
 					<Button btnType="Success">SUBMIT</Button>
@@ -150,7 +150,8 @@ const mapStateToProps = state => {
 	return {
 		loading: state.auth.loading,
 		error: state.auth.error,
-		isLoggedin: state.auth.token != null,
+		isLoggedIn: state.auth.token != null,
+		token: state.auth.token,
 		building: state.burgerBuilder.building,
 	}
 }
@@ -162,4 +163,4 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Auth));

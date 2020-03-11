@@ -18,8 +18,8 @@ const SideDrawer = (props) => {
 				<div className={classes.Logo}>
 					<Logo height='100%' />
 				</div>
-				<nav>
-					<NavigationItems
+				<nav onClick={props.clicked}>
+					<NavigationItems 
 						buildingReset={props.buildingReset}
 						isLogged={props.isLogged} />
 
