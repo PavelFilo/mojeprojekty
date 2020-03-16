@@ -11,6 +11,15 @@ import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 import * as actions from '../../../store/actions/index';
 
 class ContactData extends Component {
+
+	componentDidMount() {
+		this.scrollToBottom();
+	}
+
+	scrollToBottom() {
+		this.el.scrollIntoView({ behavior: 'smooth' });
+	}
+
 	state = {
 		orderForm: {
 			name: {
@@ -155,7 +164,7 @@ class ContactData extends Component {
 		let form = <Spinner />
 		if (this.props.loading === false) {
 			form = (
-				<form onSubmit={this.orderHandler}>
+				<form ref={el => { this.el = el; }} onSubmit={this.orderHandler}>
 					{formElementsArray.map(formElement => (
 						<Input 	key={formElement.id}
 							 	elementType={formElement.config.elementType} 
