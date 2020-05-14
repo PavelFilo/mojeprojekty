@@ -1,0 +1,31 @@
+
+.Form {
+    float: left;
+    margin-left: 2%;
+}
+
+.Form input {
+    font-family: 'Baloo 2', cursive;
+    height: 40px;
+
+    border: none;
+    box-shadow: 0 2px 3px #ccc;
+    border-radius: 2%;
+    font-size: 16px;
+    transition: all .3s ease-out;
+    padding-left: 30px; 
+    margin: auto;
+}
+
+.Form input:hover,
+.Form input:focus,
+.Form input:active {
+    box-shadow: 0 4px 6px #ccc;
+    outline: none;
+
+}
+.search {
+    position: relative;
+    left: 25px;
+    color: #696969;
+}

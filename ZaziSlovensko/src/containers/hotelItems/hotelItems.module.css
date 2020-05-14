@@ -1,0 +1,19 @@
+.ziadneUbytovanie {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+.ziadneUbytovanie p {
+    font-size: 35px;
+    color: #AEB0BB;
+    font-weight: bold;
+}
+
+.link {
+    margin: auto 0;
+    color: black;
+    font-size: 25px;
+    text-decoration: underline;
+}

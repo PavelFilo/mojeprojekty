@@ -1,0 +1,17 @@
+.pathsSvg {
+    width: 80%;
+    max-width: 1000px;
+    margin-top: -70px;
+}
+
+.pathsSvg path {
+    stroke-linejoin: round;
+    stroke: #5e5e5e;
+    fill: #fff;
+    transition: all 1s ease-out;
+}
+
+.pathsSvg path:hover {
+        fill: #7ACFD6;
+        transform: scale(1.05);
+    }

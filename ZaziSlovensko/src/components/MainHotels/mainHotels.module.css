@@ -1,0 +1,26 @@
+.MainHotels {
+    text-align: center;
+}
+
+.MainHotels h1{
+    text-align: center;
+}
+
+.MainHotels h2 {
+    width: 70%;
+    margin: 0 auto;
+    color: #373737;
+    font-weight:300;
+}
+
+@media (max-width: 815px) {
+    .MainHotels h2 {
+        width: 90%;
+    }
+}
+
+@media (max-width: 675px) {
+    .MainHotels h2 {
+        text-align: center;
+    }
+}

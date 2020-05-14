@@ -1,0 +1,32 @@
+.bottomFooter {
+    width: 80%;
+    border-top: 1px solid #ddd;
+    margin: auto;
+    text-align: center;
+    height: 90px;
+    display: flex;
+    align-items: center;
+}
+
+.bottomFooter form {
+    margin-left: auto;
+}
+
+.bottomFooter form select {
+    font-family: 'Baloo 2', cursive;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.bottomFooter form select:active,
+.bottomFooter form select:focus {
+    outline: none;
+}
+
+
+@media (max-width: 425px) {
+    .bottomFooter {
+        display: block; 
+    }
+}

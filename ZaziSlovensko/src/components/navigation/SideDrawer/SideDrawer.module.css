@@ -1,0 +1,56 @@
+.SideDrawer {
+	position: fixed;
+	width: 280px;
+	max-width: 70%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 200;
+	background-color: white;
+	padding: 32px 3px;
+	box-sizing: border-box;
+	transition: transform 0.3s ease-out;
+}
+
+.Logo {
+	width: 65px;
+	height: 65px;
+	background: transparent;
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+@media (min-width: 675px) {
+	.SideDrawer {
+		display: none;
+	}
+}
+
+.Open {
+	transform: translateX(0);
+}
+
+.Close {
+	transform: translateX(-100vh);
+}
+
+.SideDrawer form input {
+	width: 75%;
+	z-index: 20;
+}
+
+.SideDrawer form {
+	margin: 30px 0;
+	height: 50px;
+
+}
+
+.SideDrawer ul li {
+	display:block;
+	margin: 10px 20px;
+	text-transform: uppercase;
+}
+
+.SideDrawer ul {
+	margin-top: 100px;
+}

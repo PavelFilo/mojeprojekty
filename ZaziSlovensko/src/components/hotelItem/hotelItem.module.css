@@ -1,0 +1,114 @@
+.hotelItem {
+    width: 70%;
+    margin: auto;
+    border-top: 1px solid #ddd;
+    padding:30px 0;
+    min-height: 200px;
+}
+
+.hotelItem img {
+    object-fit: cover;
+    float:left;
+    margin-right: 20px;
+    width: 240px;
+    height: 200px;
+    border-radius: 4%;
+}
+
+    .hotelItem h3 {
+        border-bottom: 2px solid #c3272a;
+        color: black;
+    }
+
+.hotelItem NavLink {
+    color: black;
+}
+
+
+
+@media (max-width: 815px) {
+    .hotelItem {
+        width: 90%;
+    }
+}
+
+@media (max-width: 675px) {
+    .hotelItem img {
+        display: block;
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+        float: none;
+    }
+    .hotelItem ul {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+}
+
+
+.MainHotelItem {
+    display: inline-block;
+    width: 30%;
+    margin: auto;
+    padding: 30px;
+    min-height: 200px;
+    box-sizing:border-box;
+}
+
+    .MainHotelItem img {
+        display: block;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        margin: 0 auto;
+        float: none;
+        border-radius: 4%;
+    }
+
+    .MainHotelItem ul {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .MainHotelItem img {
+        object-fit: cover;
+     
+    }
+
+    .MainHotelItem h3 {
+        text-align: left;
+        border-bottom: 2px solid #c3272a;
+        color: black;
+    }
+
+.Adresa {
+    display: none;
+}
+
+
+@media (min-width: 1700px) {
+    .MainHotelItem img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 815px) {
+    .MainHotelItem {
+        width: 40%;
+    }
+}
+
+@media (max-width: 675px) {
+    .MainHotelItem {
+        width: 90%;
+    }
+    .MainHotelItem img {
+        height: auto;
+    }    
+}
+
+
