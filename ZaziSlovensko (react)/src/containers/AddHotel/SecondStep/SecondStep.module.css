@@ -69,6 +69,10 @@
 
 }
 
+.More p {
+    cursor: pointer;
+}
+
 
 
 @keyframes slideInToLeft {

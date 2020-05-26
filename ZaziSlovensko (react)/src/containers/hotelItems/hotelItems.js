@@ -50,7 +50,6 @@ class HotelItems extends Component {
     }
 
     render() {
-        console.log('rendering')
         let meno;
         if (this.props.location) {
             meno = new URLSearchParams(this.props.location.search).get("name");

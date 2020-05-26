@@ -1,8 +1,6 @@
 ﻿import React, { Component } from 'react';
 
 import classes from './SecondStep.module.css';
-import Bratislava from '../../../assets/images/Bratislava.jpg';
-import { NavLink } from 'react-router-dom';
 
 class SecondStep extends Component {
 
@@ -13,7 +11,7 @@ class SecondStep extends Component {
     slideAndChange = () => {
         this.setState({ classes: [...this.state.classes, classes.SlideOut] })
         setTimeout(() => {
-           this.props.history.push('/');
+           this.props.history.push('/pridatHotel');
         }, 400);
     }
 

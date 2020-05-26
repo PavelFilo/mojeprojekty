@@ -27,34 +27,47 @@ const SecondStep = React.lazy(() => {
     return import('./containers/AddHotel/SecondStep/SecondStep');
 });
 
+const ThirdStep = React.lazy(() => {
+    return import('./containers/AddHotel/ThirdStep/ThirdStep');
+});
+
+const Error = React.lazy(() => {
+    return import('./components/UI/ErrorHandler/Error');
+});
+
 
 
 const App = (props) => {
 
-    const { onReloadAuth } = props;
+    const { onReloadAuth, onReset, done } = props;
 
     useEffect(() => {
         onReloadAuth();
     }, [onReloadAuth]);
 
+    useEffect(() => {
+        if (done) { onReset() };
+    }, [onReset, done]);
+
     let routes = (
         <Switch>
-            <Route path='/acco' component={Accommodation} />
-            <Route path='/hotely' component={HotelItems} />
+            <Route path='/acco' exact component={Accommodation} />
+            <Route path='/hotely' exact component={HotelItems} />
             <Route path='/' exact component={Map} />
-            <Route path='/' component={Map} />
+            <Route path='/' component={Error} />
         </Switch>
     );
 
     if (props.isLoggedIn) {
         routes = (
             <Switch>
-                <Route path='/acco' component={Accommodation} />
-                <Route path='/hotely' component={HotelItems} />
-                <Route path='/pridat' component={FirstStep} />
-                <Route path='/pridatNext' component={SecondStep} />
+                <Route path='/acco' exact component={Accommodation} />
+                <Route path='/hotely' exact component={HotelItems} />
+                <Route path='/pridat' exact component={FirstStep} />
+                <Route path='/pridat2' exact component={SecondStep} />
+                <Route path='/pridatHotel' exact component={ThirdStep} />
                 <Route path='/' exact component={Map} />
-                <Route path='/' component={Map} />
+                <Route path='/' component={Error} />
             </Switch>
         );
     }
@@ -77,12 +90,14 @@ const App = (props) => {
 const mapStateToProps = (state) => {
     return {
         isLoggedIn: state.auth.token != null,
+        done: state.addHotel.statusDone,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onReloadAuth: () => dispatch(actions.authCheckState())
+        onReloadAuth: () => dispatch(actions.authCheckState()),
+        onReset: () => dispatch(actions.resetDone()),
     }
 }
 

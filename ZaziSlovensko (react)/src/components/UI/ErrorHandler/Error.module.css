@@ -1,0 +1,51 @@
+.ErrorDiv {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Xdiv {
+    height: 117px;
+    width: 142px;
+    background-color: #c3272a;
+    border-radius: 5px;
+    position: relative;
+    margin: 0 auto;
+}
+
+    .Xdiv:after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        content: "\274c";
+        font-size: 70px;
+        color: #FFF;
+        line-height: 125px;
+        text-align: center;
+    }
+
+.Error {
+    text-align: center;
+}
+
+.Error p {
+    text-align: center;
+    font-size: 30px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.Error a {
+    margin: 0 auto;
+    text-decoration: underline;
+    color: #111;
+}
+
+
+.Error a:hover {
+    color: black;
+}

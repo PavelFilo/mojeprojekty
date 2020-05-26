@@ -9,7 +9,7 @@ const Input = (props) => {
 	let validationError = null;
 	if (props.invalid && props.shouldValidate && props.touched) {
 		inputClasses.push(classes.Invalid);
-		validationError = <p className={classes.ValidationError}>Zadali ste nesprávný formát</p>;
+		validationError = <p className={classes.ValidationError}>Zadajte správny formát</p>;
 	}
 
 
@@ -18,18 +18,24 @@ const Input = (props) => {
 			inputElement = <input
 				className={inputClasses.join(' ')}
 				{...props.elementConfig}
-				value={props.value} onBlur={props.check} onChange={props.changed}/>;
+				value={props.value}
+				onBlur={props.check}
+				onChange={props.changed} />;
 			break;
 		case ('textarea'):
-			inputElement = <textarea 	className={classes.InputElement} 
-										{...props.elementConfig}
-										value={props.value} onChange={props.changed}/>;
+			inputElement = <textarea
+				className={classes.textarea} 
+				onBlur={props.check}
+				{...props.elementConfig}
+				value={props.value}
+				onChange={props.changed} />;
 			break;
 		case ('select'):
 			inputElement = (
 				 <select 	
 				 	className={inputClasses.join(' ')} 
-					value={props.value} onChange={props.changed}>
+					value={props.value}
+					onChange={props.changed}>
 					{props.elementConfig.options.map(option => (
 						<option key={option.value}  value={option.value} >
 							{option.displayValue}
@@ -37,6 +43,14 @@ const Input = (props) => {
 					))}
 				 </select>
 				);
+			break;
+		case ('file'):
+			inputElement = <input
+				type="file"
+				id="avatar" name="avatar"
+				accept="image/png, image/jpeg"
+				onChange={props.changed}
+			/>;
 			break;
 		default: 
 			inputElement = <input 

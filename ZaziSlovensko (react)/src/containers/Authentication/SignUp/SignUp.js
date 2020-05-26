@@ -5,6 +5,7 @@ import * as actions from '../../../store/actions/index';
 import classes from '../Login/Login.module.css';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import Input from '../../../components/UI/Input/Input';
+import { checkValidity } from '../../../components/UI/Input/checkValidity';
 
 
 class SignUp extends PureComponent {
@@ -82,33 +83,7 @@ class SignUp extends PureComponent {
 		validity: null
 	};
 
-	checkValidity = (value, rules) => {
-		
-		let isValid = true;
-
-		if (rules.isEmail) {
-			isValid = value.match(/^[ ]*([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})[ ]*$/i) && isValid;
-		}
-
-		if (rules.isNumber) {
-			isValid = isNaN(Number(value)) !== true && isValid;
-		}
-
-		if (rules.required) {
-			isValid = value.replace(' ', '') !== '' && isValid;
-		}
-
-		if (rules.minLength) {
-			isValid = value.length >= rules.minLength && isValid;
-		}
-		if (rules.maxLength) {
-			isValid = value.length <= rules.maxLength && isValid;
-		}
-
-
-		return isValid;
-
-	}
+	
 
 	inputChangedHandler = (event, controlName) => {
 		const updatedControls = {
@@ -126,7 +101,7 @@ class SignUp extends PureComponent {
 			...this.state.controls,
 			[controlName]: {
 				...this.state.controls[controlName],
-				valid: this.checkValidity(event.target.value, this.state.controls[controlName].validation),
+				valid: checkValidity(event.target.value, this.state.controls[controlName].validation),
 				touched: true,
 			}
 		};
@@ -139,8 +114,14 @@ class SignUp extends PureComponent {
 			this.setState({ validity: 'Heslá sa nezhodujú, zadajte rovnaké heslo' });
 		} else if (this.state.controls.password.value === '' || this.state.controls.retypePassword.value === '' || this.state.controls.email.value === '') {
 			this.setState({ validity: 'Vyplnte všetky polia' });
-		} else this.props.onLogin(this.state.controls.email.value, this.state.controls.password.value, true, this.state.controls);
-			
+		} else {
+			this.props.onLogin(this.state.controls.email.value, this.state.controls.password.value, true, this.state.controls);
+			const updatedControls = { ...this.state.controls };
+			updatedControls.password.value = '';
+			updatedControls.email.value = '';
+			updatedControls.retypePassword.value = '';
+			this.setState({ controls: updatedControls });
+		}
 	}
 
 

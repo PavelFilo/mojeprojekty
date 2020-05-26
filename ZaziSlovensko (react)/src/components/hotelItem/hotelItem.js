@@ -41,8 +41,11 @@ const HotelItem = (props) => {
     return (
         <div className={props.main ? classes.MainHotelItem : classes.hotelItem}>
             <NavLink exact to={'/acco?name=' + props.meno}>
-                <img src={src.src} alt="ukazka hotela" />
+                <figure>
+                    <img src={src.src} alt="ukazka hotela" />
+                </figure>
             </NavLink>
+
             <ul>
                 <li><NavLink exact to={'/acco?name='+ props.meno}><h3>{props.meno}</h3></NavLink></li>
                 <li>{props.popis}</li>

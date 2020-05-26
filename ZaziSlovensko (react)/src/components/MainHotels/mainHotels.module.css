@@ -13,6 +13,22 @@
     font-weight:300;
 }
 
+.MainHotels img {
+    transition: all .5s ease-out;
+}
+
+.MainHotels figure {
+    overflow: hidden;
+    margin: 0;
+    border-radius: 4%;
+}
+
+.MainHotels img:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+    filter: grayscale(100%);
+}
+
 @media (max-width: 815px) {
     .MainHotels h2 {
         width: 90%;

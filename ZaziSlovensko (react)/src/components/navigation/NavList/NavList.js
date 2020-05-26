@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 import * as actions from '../../../store/actions/index';
 import classes from './NavList.module.css';
@@ -9,7 +9,10 @@ const NavList = (props) => {
     let links = (
         <Aux>
             <li><NavLink activeClassName={classes.Active} to='/pridat'>Pridať hotel</NavLink></li>
-            <li onClick={() => props.onLogout()}>Odhlásiť sa</li>
+            <li onClick={() => {
+                props.onLogout();
+                props.history.push('/');
+            }}>Odhlásiť sa</li>
 
         </Aux>
        
@@ -42,4 +45,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavList);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavList));

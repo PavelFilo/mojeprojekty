@@ -13,6 +13,13 @@ const Accommodation = React.memo((props) => {
     let hotel, myHotel = <Spinner />, images;
     const meno = new URLSearchParams(props.location.search).get("name");
     if (props.accommData && !hotel) {
+        console.log(props.accommData)
+        if (props.accommData.length === 0) {
+            props.history.push('/error');
+            window.location.reload(false);
+
+        }
+
         [hotel] = props.accommData.filter(hotel => hotel.name === meno );
         if (state.src) {
             images = state.src.map((src, id) => {

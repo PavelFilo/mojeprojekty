@@ -7,12 +7,14 @@ import thunk from 'redux-thunk';
 import './index.css';
 import hotelItemsReducer from './store/reducers/hotelItems';
 import authReducer from './store/reducers/auth';
+import addHotelReducer from './store/reducers/addHotel';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    hotelItems: hotelItemsReducer
+    hotelItems: hotelItemsReducer,
+    addHotel: addHotelReducer,
 });
 
 const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;

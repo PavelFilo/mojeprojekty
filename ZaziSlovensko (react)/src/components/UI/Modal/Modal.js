@@ -12,8 +12,7 @@ const modal = props => {
 		
 		return(
 			<Aux>
-				<Backdrop show={props.show}
-							clicked={props.login} />	
+				{props.login ? <Backdrop show={props.show} clicked={props.login} /> : <Backdrop show={props.show} clicked={() => { }} />}	
 				<div className={classes.Modal}
 					 style={{transform: props.show ? 'translateY(-20px)' : 'translateY(-200vh)'}} >
 					{props.children}

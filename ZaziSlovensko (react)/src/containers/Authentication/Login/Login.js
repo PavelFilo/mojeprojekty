@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../../store/actions/index';
 import classes from './Login.module.css';
 import Spinner from '../../../components/UI/Spinner/Spinner';
+import { checkValidity } from '../../../components/UI/Input/checkValidity';
 
 
 class Login extends PureComponent {
@@ -42,32 +43,6 @@ class Login extends PureComponent {
 		validity: null,
 	};
 
-	checkValidity = (value, rules) => {
-		let isValid = true;
-
-		if (rules.isEmail) {
-			isValid = value.match(/^[ ]*([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})[ ]*$/i) && isValid;
-		}
-
-		if (rules.isNumber) {
-			isValid = isNaN(Number(value)) !== true && isValid;
-		}
-
-		if (rules.required) {
-			isValid = value.replace(' ', '') !== '' && isValid;
-		}
-
-		if (rules.minLength) {
-			isValid = value.length >= rules.minLength && isValid;
-		}
-		if (rules.maxLength) {
-			isValid = value.length <= rules.maxLength && isValid;
-		}
-
-
-		return isValid;
-
-	}
 
 	inputChangedHandler = (event, controlName) => {
 		const updatedControls = {
@@ -75,7 +50,7 @@ class Login extends PureComponent {
 			[controlName]: {
 				...this.state.controls[controlName],
 				value: event.target.value,
-				valid: this.checkValidity(event.target.value, this.state.controls[controlName].validation),
+				valid: checkValidity(event.target.value, this.state.controls[controlName].validation),
 				touched: true,
 			}
 		};
@@ -89,6 +64,10 @@ class Login extends PureComponent {
 		} else {
 			this.setState({ validity: null });
 			this.props.onLogin(this.state.controls.email.value, this.state.controls.password.value, false);
+			const updatedControls = { ...this.state.controls };
+			updatedControls.password.value = '';
+			updatedControls.email.value = '';
+			this.setState({ controls: updatedControls });
 		}
 	}
 

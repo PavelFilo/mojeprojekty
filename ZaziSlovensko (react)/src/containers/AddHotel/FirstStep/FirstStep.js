@@ -2,7 +2,6 @@
 
 import classes from './FirstStep.module.css';
 import Bratislava from '../../../assets/images/Bratislava.jpg';
-import { NavLink } from 'react-router-dom';
 
 class FirstStep extends Component {
 
@@ -13,7 +12,7 @@ class FirstStep extends Component {
     slideAndChange = () => {
         this.setState({ classes: [...this.state.classes, classes.SlideOut] })
         setTimeout(() => {
-            this.props.history.push('/pridatNext');
+            this.props.history.push('/pridat2');
         }, 400);
     }
 

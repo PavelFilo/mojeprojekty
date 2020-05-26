@@ -18,7 +18,8 @@ class Toolbar extends Component {
 
     onSearchHotelHandler = (event) => {
         event.preventDefault();
-        this.props.history.push('/hotely?name='+ this.state.name);
+        this.props.history.push('/hotely?name=' + this.state.name);
+        window.location.reload(false);
     }
 
     onChangeHandler = (event) => {
