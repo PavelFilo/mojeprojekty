@@ -4,7 +4,6 @@ import storage from '../../instances/firebase.js';
 import { NavLink } from 'react-router-dom';
 
 import classes from './hotelItem.module.css';
-//import Photo from '../../assets/images/chata.jpg'; 
 
 
 const HotelItem = (props) => {
@@ -37,7 +36,11 @@ const HotelItem = (props) => {
         }
         return () => isCanceled = true;
     }, [src.path]);
-
+    let adresa = null;
+    if (props.adresa) {
+        adresa = props.adresa.street + ' ' + props.adresa.houseNumber + ', ' + props.adresa.PSC + ' ' + props.adresa.city;   
+    }
+    
     return (
         <div className={props.main ? classes.MainHotelItem : classes.hotelItem}>
             <NavLink exact to={'/acco?name=' + props.meno}>
@@ -49,7 +52,7 @@ const HotelItem = (props) => {
             <ul>
                 <li><NavLink exact to={'/acco?name='+ props.meno}><h3>{props.meno}</h3></NavLink></li>
                 <li>{props.popis}</li>
-                <li>{props.adresa}</li>
+                <li>{adresa}</li>
             </ul>
         </div>
         )

@@ -27,10 +27,11 @@
 
 .Kontakt {
     width: 40%;
+    display: inline-block;
     min-width: 300px;
     box-sizing: border-box;
     padding: 20px;
-    margin: 40px 0;
+    margin: 10% 0;
     border: 1px solid #ddd;
     box-shadow: 0 2px 3px #ccc;
 }
@@ -74,6 +75,14 @@
     width: 25%;
 }
 
+
+@media (max-width: 1150px) {
+    .Kontakt {
+        display: block;
+        margin: 5% auto;
+    }
+}
+
 @media (max-width: 1000px) {
 
     .Images img {
@@ -95,6 +104,15 @@
 @media (max-width: 675px) {
     .Kontakt {
         width: 100%;
+    
     }
 
+}
+
+
+@media (max-width: 350px) {
+    .Kontakt {
+        font-size: 13px;
+        min-width: 0;
+    }
 }

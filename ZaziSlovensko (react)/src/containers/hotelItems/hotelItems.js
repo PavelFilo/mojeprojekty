@@ -77,13 +77,12 @@ class HotelItems extends Component {
                     }
                 }
                 let popis = hotel.popis.substr(0, hotel.popis.lastIndexOf(' ', maxLength))
-
                 return (
                     <HotelItem
                         key={index}
                         id={index}
                         meno={hotel.name}
-                        adresa={'Adresa:' + hotel.adresa}
+                        adresa={hotel.address}
                         pocetHosti={hotel.pocetHosti}
                         popis={popis+'...'}
                         imageSrc={hotel.imgPath} />
@@ -99,7 +98,6 @@ class HotelItems extends Component {
                     </div>
                 )
             }
-   
         }
             return (
                 <Aux>   

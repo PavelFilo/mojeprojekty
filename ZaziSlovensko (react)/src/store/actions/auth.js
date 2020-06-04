@@ -39,9 +39,9 @@ export const authentication = (email, password, signUp, dataSet) => {
             password: password,
             returnSecureToken: true
         }
-        let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCCkPI7qHrY_W8yo0JDUr93KxDCbTOxPsA';
+        let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_API_KEY}`;
         if (!signUp) {
-            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCCkPI7qHrY_W8yo0JDUr93KxDCbTOxPsA';
+            url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_API_KEY}`;
             
         }
 

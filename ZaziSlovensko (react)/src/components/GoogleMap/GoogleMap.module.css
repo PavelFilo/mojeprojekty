@@ -1,0 +1,21 @@
+.MapDiv {
+    display: inline-block;
+    float: right;
+    margin: 10% 0 10% 5%;
+    width: 55%;
+}
+
+@media (max-width: 1170px) {
+    .MapDiv {
+        display: block;
+        float: none;
+        margin: 1% auto;
+        width: 80%;
+    }
+}
+
+@media (max-width: 675px) {
+    .MapDiv {
+        width: 100%;
+    }
+} 

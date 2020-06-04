@@ -22,7 +22,7 @@ export const addHotel = (hotelData, token, img) => {
     return dispatch => {
         dispatch(uploadHotelStart());
         const imgPath = storage.ref().child(hotelData.name + '/' + img.name);
-        imgPath.put(img).then(response => { console.log('aaaa') }).catch(error => { console.log(error) });
+        imgPath.put(img).catch(error => { dispatch(uploadHotelFail(error)); });
         axios.post('/accommodations.json?auth=' + token, hotelData)
                 .then(response => {
                     dispatch(uploadHotelSuccess(response.data.name, hotelData));

@@ -25,10 +25,8 @@ export const fetchAccommodationsFail = error => {
 export const fetchAccommodations = (query) => {
     return dispatch => {
         dispatch(fetchAccommodationsStart());
-        console.log('fetching');
         axios.get('accommodations.json' + query)
             .then(response => {
-                console.log('responding');
                 const fetchedAccommodations = [];
                 for (let key in response.data) {
                     fetchedAccommodations.push({    
